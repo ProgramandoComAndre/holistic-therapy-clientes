@@ -1,0 +1,13 @@
+services:
+  clientes_db:
+    image: postgres
+    restart: always
+    volumes:
+      - terapia_holistica_clientes:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+    ports:
+      - "5433:5432"
+volumes:
+  terapia_holistica_clientes:
